@@ -1094,3 +1094,30 @@ img.align-top {
     .envelope-title { font-size: 2.2rem; }
     .section-title { font-size: clamp(1.8rem, 6vw, 2.5rem); }
 }
+
+/* Print PDF Styles */
+@media print {
+    #envelopeOverlay, .audio-control, .navbar, .secret-note-btn, .romantic-kiss-btn, #particleCanvas {
+        display: none !important;
+    }
+    .main-content.hidden {
+        display: block !important;
+        opacity: 1 !important;
+    }
+    body {
+        background-color: #ffffff !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+    .hero-section, .section, .letter-card, .person-card, .gallery-card, .footer {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+    .letter-card {
+        box-shadow: none !important;
+        border: 1.5px solid #d4af37 !important;
+        margin-bottom: 25px !important;
+    }
+}
