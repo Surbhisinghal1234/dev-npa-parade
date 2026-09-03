@@ -276,16 +276,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 8. DOWNLOAD PDF FUNCTION
-    window.downloadPDF = function() {
-        const link = document.createElement('a');
-        link.href = 'Officer_Dev_Passing_Out_Parade_Letter.pdf';
-        link.download = 'Officer_Dev_Passing_Out_Parade_Letter.pdf';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    };
-
     // 8. FLOATING LIGHT PARTICLES & SPARKLES CANVAS
     const canvas = document.getElementById('particleCanvas');
     if (canvas) {
