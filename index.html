@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congratulations Officer Dev | A New Journey Begins</title>
+    <meta name="description" content="A special letter and greeting website celebrating Officer Dev on his Passing Out Parade (NPA) and the beginning of a magnificent new journey together.">
+    
+    <!-- Google Fonts: Cormorant Garamond, Montserrat, Great Vibes, Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600;1,700&family=Great+Vibes&family=Montserrat:wght@500;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Floating Canvas for Starry & Rose Petals Sparkles -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Background Music Audio -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-wedding-acoustic-112199.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Floating Audio Control -->
+    <div class="audio-control" id="audioToggle" title="Toggle Music">
+        <div class="disc-icon" id="discIcon"><i class="fa-solid fa-compact-disc"></i></div>
+        <span class="music-label" id="musicStatus">Music Off</span>
+        <i class="fa-solid fa-volume-xmark" id="volumeIcon"></i>
+    </div>
+
+    <!-- 1. ENVELOPE / LETTER OPENING COVER -->
+    <div id="envelopeOverlay" class="envelope-overlay">
+        <div class="envelope-card">
+            <div class="officer-badge-icon"><i class="fa-solid fa-award"></i></div>
+            <div class="envelope-subtitle">A Special Letter For You</div>
+            <h1 class="envelope-title">Dev,</h1>
+            <p class="envelope-quote">
+                "A letter for the beginning of your real journey...<br><br>
+                Today, I am not just celebrating your achievement. I am celebrating the beginning of everything you have dreamed of."
+            </p>
+            <div class="envelope-sign">With love, pride, and endless belief in you ❤️✨</div>
+
+            <div class="wax-seal" id="openInvitationBtn">
+                <i class="fa-solid fa-envelope-open-text"></i>
+                <span>Open Letter</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN APP CONTENT -->
+    <div id="mainContent" class="main-content hidden">
+
+        <!-- NAV BAR -->
+        <nav class="navbar">
+            <div class="nav-logo">Dev & Pooja ✨</div>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#profiles">Profiles</a></li>
+                <li><a href="#letter">The Letter</a></li>
+                <li><a href="#gallery">Memories</a></li>
+            </ul>
+        </nav>
+
+        <!-- HERO SECTION -->
+        <section id="hero" class="hero-section">
+            <div class="hero-backdrop"></div>
+            <div class="hero-content">
+                <div class="badge-tag"><i class="fa-solid fa-star"></i> NPA PASSING OUT PARADE CELEBRATION <i class="fa-solid fa-star"></i></div>
+                <h1 class="hero-title">Congratulations, <br><span class="highlight-name">Officer Dev!</span></h1>
+                <p class="hero-subtitle">Your Real Journey Starts Today ✨</p>
+                <p class="hero-tagline">"Where your hard work meets your dreams, and two journeys unite as one."</p>
+
+                <div class="hero-actions">
+                    <a href="#letter" class="btn btn-primary"><i class="fa-solid fa-book-open-reader"></i> Read The Letter</a>
+                    <a href="#gallery" class="btn btn-secondary"><i class="fa-solid fa-images"></i> View Photos</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROFILES: OFFICER DEV & OUR JOURNEY -->
+        <section id="profiles" class="section profiles-section">
+            <div class="section-header">
+                <span class="section-subtitle">Pillars of Pride & Love</span>
+                <h2 class="section-title">The Officer & Our Bond</h2>
+                <div class="gold-divider"><i class="fa-solid fa-shield-halved"></i></div>
+            </div>
+
+            <div class="profiles-grid">
+                <!-- OFFICER DEV CARD -->
+                <div class="person-card card-officer">
+                    <div class="image-wrapper">
+                        <img id="devImg" src="assets/WhatsApp Image 2026-09-03 at 10.14.33 (2).jpeg" alt="Officer Dev" onerror="this.src='assets/dev_officer.svg'">
+                    </div>
+                    <div class="person-info">
+                        <span class="role-badge officer-badge"><i class="fa-solid fa-shield-heart"></i> The Officer</span>
+                        <h3 class="person-name">Dev</h3>
+                        <p class="person-bio">"Seeing you at the post you worked so hard for is truly one of the proudest moments of my life."</p>
+                        <div class="like-button-container">
+                            <button class="like-btn" data-person="dev">
+                                <i class="fa-solid fa-star"></i> Salute & Pride (<span id="devLikes">184</span>)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HEART / CREST CONNECTOR -->
+                <div class="heart-connector">
+                    <i class="fa-solid fa-infinity"></i>
+                    <span>New Journeys</span>
+                </div>
+
+                <!-- OUR JOURNEY TOGETHER CARD -->
+                <div class="person-card card-couple">
+                    <div class="image-wrapper">
+                        <img id="coupleImg" src="assets/WhatsApp Image 2026-09-03 at 10.14.34.jpeg" alt="Dev & Pooja Journey" onerror="this.src='assets/couple_journey.svg'">
+                    </div>
+                    <div class="person-info">
+                        <span class="role-badge journey-badge"><i class="fa-solid fa-heart"></i> Our Journey</span>
+                        <h3 class="person-name">Together</h3>
+                        <p class="person-bio">"Your journey towards growth, and our journey through love, life, achievements, and everything coming."</p>
+                        <div class="like-button-container">
+                            <button class="like-btn" data-person="couple">
+                                <i class="fa-solid fa-heart"></i> Celebrate Us (<span id="coupleLikes">210</span>)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- THE HEARTFELT LETTER SECTIONS -->
+        <section id="letter" class="section letter-section">
+            <div class="section-header">
+                <span class="section-subtitle">Words Written From The Heart</span>
+                <h2 class="section-title">A Letter For Your Real Journey</h2>
+                <p class="section-desc">Every line dedicated to your hard work, your NPA parade, your dreams, and our togetherness.</p>
+                <div class="gold-divider"><i class="fa-solid fa-envelope-open"></i></div>
+            </div>
+
+            <div class="letter-cards-wrapper">
+
+                <!-- CARD 1: ONE OF MY PROUDEST MOMENTS -->
+                <div class="letter-card">
+                    <div class="card-number">01</div>
+                    <h3 class="letter-card-title">One of My Proudest Moments</h3>
+                    <div class="letter-card-body">
+                        <p>Seeing you at the post you worked so hard for is truly one of the proudest moments of my life.</p>
+                        <p>I love you, Dev... and that is why I love seeing you grow. Especially in your career. Watching you reach the dreams you once worked so hard for fills my heart with a pride that I cannot completely put into words.</p>
+                    </div>
+                    <div class="letter-card-footer">
+                        <i class="fa-solid fa-heart"></i> Endless Pride
+                    </div>
+                </div>
+
+                <!-- CARD 2: TODAY, A NEW CHAPTER BEGINS -->
+                <div class="letter-card highlight-card">
+                    <div class="card-number">02</div>
+                    <h3 class="letter-card-title"><i class="fa-solid fa-award"></i> Today, A New Chapter Begins</h3>
+                    <div class="letter-card-body">
+                        <p class="emphasis-text">Today, your Passing Out Parade at the NPA has been completed.</p>
+                        <p>And with that, a new chapter of your life begins.</p>
+                        <p><strong>Now, the real journey begins.</strong></p>
+                        <p>The journey of becoming the officer you have always dreamed of becoming... and the journey that will shape everything you are yet to achieve.</p>
+                    </div>
+                    <div class="letter-card-footer">
+                        <i class="fa-solid fa-star"></i> NPA Passing Out Parade
+                    </div>
+                </div>
+
+                <!-- CARD 3: MY DREAM FOR YOU -->
+                <div class="letter-card">
+                    <div class="card-number">03</div>
+                    <h3 class="letter-card-title">My Dream for You</h3>
+                    <div class="letter-card-body">
+                        <p>I dream of seeing you become a dedicated, respected, and well-known officer—someone remembered not just because of the position he holds, but because of the work he does and the difference he makes.</p>
+                        <p>I want to see you reach the highest positions and make a place for yourself among the people who truly inspire generations.</p>
+                        <p class="quote-style">More than fame, Dev... I wish to see you become an inspiration.</p>
+                    </div>
+                    <div class="letter-card-footer">
+                        <i class="fa-solid fa-compass"></i> Vision & Inspiration
+                    </div>
+                </div>
+
+                <!-- CARD 4: FOR EVERY DREAM YOU CARRY -->
+                <div class="letter-card">
+                    <div class="card-number">04</div>
+                    <h3 class="letter-card-title">For Every Dream You Carry</h3>
+                    <div class="letter-card-body">
+                        <p>I want people to look at your journey and believe that an ordinary person with extraordinary determination can achieve whatever they truly dream of.</p>
+                        <blockquote class="kalam-quote">
+                            "Just like Dr. Kalam taught us—that where you come from does not decide where you can go."
+                        </blockquote>
+                        <p>I hope that one day, your journey and your work become an example for the next generation.</p>
+                    </div>
+                    <div class="letter-card-footer">
+                        <i class="fa-solid fa-lightbulb"></i> Inspiration for Generations
+                    </div>
+                </div>
+
+                <!-- CARD 5: OUR JOURNEY BEGINS TOO -->
+                <div class="letter-card highlight-card-gold">
+                    <div class="card-number">05</div>
+                    <h3 class="letter-card-title"><i class="fa-solid fa-heart-circle-bolt"></i> Our Journey Begins Too</h3>
+                    <div class="letter-card-body">
+                        <p>Today, I don't just celebrate your achievement. I celebrate the beginning of everything that is yet to come.</p>
+                        <ul class="journey-list">
+                            <li>✨ The journey of your growth.</li>
+                            <li>🌟 The journey of your dreams.</li>
+                            <li>💖 And the journey of our love.</li>
+                        </ul>
+                        <p>Now, the real journey begins for both of us... Your journey towards growth, and our journey through love, life, struggles, achievements, and everything the coming years will bring.</p>
+                    </div>
+                    <div class="letter-card-footer">
+                        <i class="fa-solid fa-infinity"></i> Both Of Our Journeys
+                    </div>
+                </div>
+
+                <!-- CARD 6: ALWAYS BESIDE YOU -->
+                <div class="letter-card">
+                    <div class="card-number">06</div>
+                    <h3 class="letter-card-title">Always Beside You</h3>
+                    <div class="letter-card-body">
+                        <p class="emphasis-text">Good luck, my love, for all the years and challenges ahead.</p>
+                        <p>No matter how difficult the journey becomes, I want you to know that I will always stand beside you.</p>
+                        <p>I will celebrate your victories, hold your hand through the difficult days, and remind you of your strength whenever you forget it.</p>
+                        <p>I will always be there—not just to witness your journey, but to be a part of it.</p>
+                        <p>May you keep growing, keep achieving, and keep becoming the person you were always meant to be.</p>
+                        <p>And while you chase your dreams, I will proudly stand beside you... cheering for you, believing in you, and loving you through every phase of this beautiful journey.</p>
+                    </div>
+                    <div class="letter-card-footer">
+                        <i class="fa-solid fa-hand-holding-heart"></i> Unshakable Support
+                    </div>
+                </div>
+
+                <!-- CARD 7: CONGRATULATIONS DEV (FINAL CLOSING) -->
+                <div class="letter-card final-letter-card">
+                    <h3 class="final-heading">Congratulations, Dev.</h3>
+                    <p class="final-subtitle">Your real journey starts today. ❤️✨</p>
+                    <p class="final-message">And wherever this journey takes you...<br>you will always have me beside you.</p>
+                    <div class="final-sign">
+                        <span>With all my love and pride,</span>
+                        <strong>Always yours ❤️✨</strong>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- PHOTO GALLERY (PARADE & TOGETHER MOMENTS) -->
+        <section id="gallery" class="section gallery-section">
+            <div class="section-header">
+                <span class="section-subtitle">Moments of Glory & Love</span>
+                <h2 class="section-title">Parade & Memory Wall</h2>
+                <p class="section-desc">Click 'View' to see any photo in full screen!</p>
+                <div class="gold-divider"><i class="fa-solid fa-camera-retro"></i></div>
+            </div>
+
+            <div class="gallery-grid">
+                <!-- PHOTO 1 -->
+                <div class="gallery-card">
+                    <div class="gallery-img-box">
+                        <img id="coupleImg1" src="assets/WhatsApp Image 2026-09-03 at 10.14.33 (1).jpeg" alt="Academy Flags Pose" onerror="this.src='assets/couple1.svg'">
+                        <div class="gallery-actions">
+                            <button class="gallery-btn view-btn" onclick="openLightbox('coupleImg1', 'Official Pride & Honor')">
+                                <i class="fa-solid fa-expand"></i> View Photo
+                            </button>
+                        </div>
+                    </div>
+                    <div class="gallery-caption">
+                        <h4>Official Pride & Honor</h4>
+                        <p>Standing tall in front of the academy flags.</p>
+                    </div>
+                </div>
+
+                <!-- PHOTO 2 -->
+                <div class="gallery-card">
+                    <div class="gallery-img-box">
+                        <img id="coupleImg2" src="assets/WhatsApp Image 2026-09-03 at 10.14.34.jpeg" alt="Side by Side Together" onerror="this.src='assets/couple2.svg'">
+                        <div class="gallery-actions">
+                            <button class="gallery-btn view-btn" onclick="openLightbox('coupleImg2', 'Our Journey Begins Together')">
+                                <i class="fa-solid fa-expand"></i> View Photo
+                            </button>
+                        </div>
+                    </div>
+                    <div class="gallery-caption">
+                        <h4>Side By Side Together</h4>
+                        <p>Cheering for you through every phase of life.</p>
+                    </div>
+                </div>
+
+                <!-- PHOTO 3 -->
+                <div class="gallery-card">
+                    <div class="gallery-img-box">
+                        <img id="coupleImg3" src="assets/WhatsApp Image 2026-09-03 at 10.14.33.jpeg" alt="Chasing Horizons" onerror="this.src='assets/couple3.svg'">
+                        <div class="gallery-actions">
+                            <button class="gallery-btn view-btn" onclick="openLightbox('coupleImg3', 'Chasing Dreams & Horizons')">
+                                <i class="fa-solid fa-expand"></i> View Photo
+                            </button>
+                        </div>
+                    </div>
+                    <div class="gallery-caption">
+                        <h4>Chasing Dreams & Horizons</h4>
+                        <p>Where your hard work meets your bright future.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="footer-badge"><i class="fa-solid fa-shield-heart"></i></div>
+            <h2>"Your Real Journey Starts Today, Dev."</h2>
+            <p>Always Yours ❤️✨</p>
+            <p class="copyright">Dedicated to Officer Dev on his Passing Out Parade (NPA)</p>
+        </footer>
+    </div>
+
+    <!-- LIGHTBOX MODAL -->
+    <div id="lightboxModal" class="lightbox-modal">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img id="lightboxImg" class="lightbox-content" src="" alt="Full Screen Photo">
+        <div id="lightboxCaption" class="lightbox-caption"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
