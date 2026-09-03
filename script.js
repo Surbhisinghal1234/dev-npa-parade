@@ -227,7 +227,56 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 6. FLOATING LIGHT PARTICLES & SPARKLES CANVAS
+    // 6. ROMANTIC KISS BUTTON LOGIC
+    const sendKissBtn = document.getElementById('sendKissBtn');
+    const kissCountEl = document.getElementById('kissCount');
+    let kissCount = parseInt(localStorage.getItem('devKissCount')) || 999;
+
+    if (kissCountEl) kissCountEl.textContent = kissCount;
+
+    if (sendKissBtn) {
+        sendKissBtn.addEventListener('click', (e) => {
+            kissCount++;
+            localStorage.setItem('devKissCount', kissCount);
+            if (kissCountEl) kissCountEl.textContent = kissCount;
+
+            const romanticSymbols = ['💖', '💕', '💋', '❤️', '🌹', '✨'];
+            for (let i = 0; i < 6; i++) {
+                setTimeout(() => {
+                    const offsetX = (Math.random() - 0.5) * 120;
+                    const offsetY = (Math.random() - 0.5) * 60;
+                    const sym = romanticSymbols[Math.floor(Math.random() * romanticSymbols.length)];
+                    createFloatingSparkle(e.clientX + offsetX, e.clientY + offsetY, sym);
+                }, i * 100);
+            }
+        });
+    }
+
+    // 7. SECRET LOVE NOTE MODAL LOGIC
+    const secretNoteModal = document.getElementById('secretNoteModal');
+    const openSecretNoteBtn = document.getElementById('openSecretNoteBtn');
+    const closeSecretNoteBtn = document.getElementById('closeSecretNoteBtn');
+
+    if (openSecretNoteBtn && secretNoteModal) {
+        openSecretNoteBtn.addEventListener('click', () => {
+            secretNoteModal.classList.add('active');
+            for (let i = 0; i < 8; i++) {
+                setTimeout(() => {
+                    const randomX = Math.random() * window.innerWidth;
+                    const randomY = Math.random() * window.innerHeight;
+                    createFloatingSparkle(randomX, randomY, '💖');
+                }, i * 150);
+            }
+        });
+    }
+
+    if (closeSecretNoteBtn && secretNoteModal) {
+        closeSecretNoteBtn.addEventListener('click', () => {
+            secretNoteModal.classList.remove('active');
+        });
+    }
+
+    // 8. FLOATING LIGHT PARTICLES & SPARKLES CANVAS
     const canvas = document.getElementById('particleCanvas');
     if (canvas) {
         const ctx = canvas.getContext('2d');

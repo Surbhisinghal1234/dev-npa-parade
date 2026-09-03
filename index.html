@@ -74,6 +74,7 @@
                 <div class="badge-tag"><i class="fa-solid fa-star"></i> NPA PASSING OUT PARADE CELEBRATION <i class="fa-solid fa-star"></i></div>
                 <h1 class="hero-title">Congratulations, <br><span class="highlight-name">Officer Dev!</span></h1>
                 <p class="hero-subtitle">Your Real Journey Starts Today ✨</p>
+                <p class="hero-romantic-line"><i class="fa-solid fa-heart"></i> "In a world full of officers and heroes, you will always be my favorite person & my forever love." ❤️</p>
                 <p class="hero-tagline">"Where your hard work meets your dreams, and two journeys unite as one."</p>
 
                 <div class="hero-actions">
@@ -118,7 +119,7 @@
                 <!-- OFFICER DEV CARD 2 -->
                 <div class="person-card card-officer">
                     <div class="image-wrapper">
-                        <img id="devBandhgalaImg" src="assets/WhatsApp Image 2026-09-03 at 10.14.33 (1).jpeg" alt="Officer Dev Academy" onerror="this.src='assets/dev_officer.svg'">
+                        <img id="devBandhgalaImg" src="assets/WhatsApp Image 2026-09-03 at 10.14.33 (1).jpeg" alt="Officer Dev Academy" class="align-top" onerror="this.src='assets/dev_officer.svg'">
                     </div>
                     <div class="person-info">
                         <span class="role-badge officer-badge"><i class="fa-solid fa-award"></i> NPA Academy</span>
@@ -229,6 +230,11 @@
                             <span><i class="fa-solid fa-heart"></i> Our Journey Begins Together ❤️</span>
                         </div>
                     </div>
+                    <div class="romantic-interactive-bar">
+                        <button class="romantic-kiss-btn" id="sendKissBtn">
+                            <i class="fa-solid fa-heart-circle-bolt"></i> Tap to Send Love & Kisses (<span id="kissCount">999</span> 💖)
+                        </button>
+                    </div>
                 </div>
 
                 <!-- CARD 6: ALWAYS BESIDE YOU -->
@@ -253,7 +259,12 @@
                     <h3 class="final-heading">Congratulations, Dev.</h3>
                     <p class="final-subtitle">Your real journey starts today. ❤️✨</p>
                     <p class="final-message">And wherever this journey takes you...<br>you will always have me beside you.</p>
-                    <div class="final-sign">
+
+                    <button class="secret-note-btn" id="openSecretNoteBtn">
+                        <i class="fa-solid fa-envelope-heart"></i> Open Secret Love Note 💌
+                    </button>
+
+                    <div class="final-sign" style="margin-top: 25px;">
                         <span>With all my love and pride,</span>
                         <strong>Always yours ❤️✨</strong>
                     </div>
@@ -291,7 +302,7 @@
                 <!-- PHOTO 2 (SOLO DEV - ACADEMY FLAGS) -->
                 <div class="gallery-card">
                     <div class="gallery-img-box">
-                        <img id="coupleImg2" src="assets/WhatsApp Image 2026-09-03 at 10.14.33 (1).jpeg" alt="Academy Flags Pose" onerror="this.src='assets/couple1.svg'">
+                        <img id="coupleImg2" src="assets/WhatsApp Image 2026-09-03 at 10.14.33 (1).jpeg" alt="Academy Flags Pose" class="align-top" onerror="this.src='assets/couple1.svg'">
                         <div class="gallery-actions">
                             <button class="gallery-btn view-btn" onclick="openLightbox('coupleImg2', 'Official Pride & Honor')">
                                 <i class="fa-solid fa-expand"></i> View Photo
@@ -337,6 +348,23 @@
         <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
         <img id="lightboxImg" class="lightbox-content" src="" alt="Full Screen Photo">
         <div id="lightboxCaption" class="lightbox-caption"></div>
+    </div>
+
+    <!-- SECRET LOVE NOTE MODAL -->
+    <div id="secretNoteModal" class="secret-note-modal">
+        <div class="secret-note-card">
+            <span class="secret-note-close" id="closeSecretNoteBtn">&times;</span>
+            <div class="secret-note-icon"><i class="fa-solid fa-heart-circle-check"></i></div>
+            <h2>A Secret For My Officer Dev ❤️</h2>
+            <div class="secret-note-text">
+                <p>"No matter where your postings take you, no matter how busy or tough the days get, my heart will always be right there with you."</p>
+                <p>"You are my greatest pride, my happiest place, and my forever love. Here's to us, to your victories, and to our golden future together! 🥂💖"</p>
+            </div>
+            <div class="secret-note-footer">
+                <span>Forever & Always,</span>
+                <strong>Pooja ❤️</strong>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
