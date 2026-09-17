@@ -69,11 +69,14 @@ body {
     backdrop-filter: blur(10px);
     border: 1.5px solid var(--accent-gold);
     color: var(--primary-burgundy);
-    padding: 6px 14px;
-    border-radius: 25px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 1.1rem;
     display: flex;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
@@ -177,8 +180,10 @@ body {
 }
 
 .wax-seal {
-    width: 140px;
-    height: 48px;
+    width: fit-content;
+    max-width: 100%;
+    min-height: 48px;
+    padding: 12px 18px;
     margin: 0 auto;
     background: linear-gradient(135deg, var(--primary-burgundy), #901737);
     border: 1.5px solid var(--accent-gold);
@@ -191,9 +196,20 @@ body {
     font-family: var(--font-sans);
     font-size: 0.85rem;
     font-weight: 700;
+    line-height: 1.4;
     cursor: pointer;
     box-shadow: 0 8px 20px rgba(122, 28, 50, 0.25);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wax-seal i {
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.wax-seal span {
+    min-width: 0;
+    text-align: center;
 }
 
 .wax-seal:hover {
@@ -213,7 +229,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 12px 5%;
-    padding-right: 120px; /* Leave space for floating audio button */
+    padding-right: 75px; /* Leave space for floating audio button */
 }
 
 .nav-logo {
@@ -247,12 +263,11 @@ body {
 /* Hero Section */
 .hero-section {
     position: relative;
-    min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 60px 20px;
+    padding: clamp(40px, 6vw, 72px) 20px;
     background: linear-gradient(180deg, #fff0f3 0%, var(--bg-cream) 100%);
 }
 
@@ -260,6 +275,31 @@ body {
     position: relative;
     z-index: 2;
     max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(22px, 3vw, 32px);
+}
+
+.hero-content .keep-together {
+    white-space: nowrap;
+}
+
+.hero-romantic-line,
+.hero-tagline {
+    text-wrap: pretty;
+}
+
+.hero-section + .profiles-section {
+    padding-top: 24px;
+}
+
+.hero-content > .badge-tag,
+.hero-content > .hero-title,
+.hero-content > .hero-subtitle,
+.hero-content > .hero-romantic-line,
+.hero-content > .hero-tagline {
+    margin: 0;
 }
 
 .badge-tag {
@@ -298,7 +338,7 @@ body {
     font-size: 2.8rem;
     color: var(--accent-gold-dark);
     margin-bottom: 15px;
-    line-height: 1;
+    line-height: 1.2;
 }
 
 .hero-tagline {
@@ -1071,7 +1111,8 @@ img.align-top {
 /* Responsive Fixes for Mobile Layout */
 @media (max-width: 768px) {
     .navbar {
-        padding-right: 15px;
+        padding-left: 68px;
+        padding-right: 68px;
         flex-direction: column;
         gap: 8px;
         padding-bottom: 10px;
@@ -1080,9 +1121,13 @@ img.align-top {
     .audio-control {
         top: 12px;
         right: 12px;
-        padding: 4px 10px;
+        padding: 0;
     }
 
+    .hero-section { padding: 36px 20px 28px; }
+    .hero-content { gap: 24px; width: 100%; }
+    .hero-romantic-line { line-height: 1.55; }
+    .hero-tagline { line-height: 1.5; }
     .hero-title { font-size: clamp(2rem, 8vw, 2.8rem); word-break: break-word; }
     .hero-subtitle { font-size: 2rem; }
     .badge-tag { font-size: 0.7rem; letter-spacing: 1px; padding: 5px 12px; max-width: 100%; white-space: normal; }

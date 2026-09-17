@@ -10,8 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const mainContent = document.getElementById('mainContent');
     const bgMusic = document.getElementById('bgMusic');
     const audioToggle = document.getElementById('audioToggle');
-    const discIcon = document.getElementById('discIcon');
-    const musicStatus = document.getElementById('musicStatus');
     const volumeIcon = document.getElementById('volumeIcon');
 
     let isPlaying = false;
@@ -27,8 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function playMusic() {
         bgMusic.play().then(() => {
             isPlaying = true;
-            discIcon.classList.add('spinning');
-            musicStatus.textContent = 'Music On';
+            audioToggle.setAttribute('aria-label', 'Pause music');
+            audioToggle.setAttribute('aria-pressed', 'true');
+            audioToggle.title = 'Pause music';
             volumeIcon.className = 'fa-solid fa-volume-high';
         }).catch(err => {
             console.log('Audio playback prevented or error:', err);
@@ -39,8 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function pauseMusic() {
         bgMusic.pause();
         isPlaying = false;
-        discIcon.classList.remove('spinning');
-        musicStatus.textContent = 'Music Off';
+        audioToggle.setAttribute('aria-label', 'Play music');
+        audioToggle.setAttribute('aria-pressed', 'false');
+        audioToggle.title = 'Play music';
         volumeIcon.className = 'fa-solid fa-volume-xmark';
     }
 

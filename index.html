@@ -28,11 +28,9 @@
     </audio>
 
     <!-- Floating Audio Control -->
-    <div class="audio-control" id="audioToggle" title="Toggle Music">
-        <div class="disc-icon" id="discIcon"><i class="fa-solid fa-compact-disc"></i></div>
-        <span class="music-label" id="musicStatus">Music Off</span>
-        <i class="fa-solid fa-volume-xmark" id="volumeIcon"></i>
-    </div>
+    <button type="button" class="audio-control" id="audioToggle" title="Play music" aria-label="Play music" aria-pressed="false">
+        <i class="fa-solid fa-volume-xmark" id="volumeIcon" aria-hidden="true"></i>
+    </button>
 
     <!-- 1. ENVELOPE / LETTER OPENING COVER -->
     <div id="envelopeOverlay" class="envelope-overlay">
@@ -46,10 +44,10 @@
             </p>
             <div class="envelope-sign">With love, pride, and endless belief in you ❤️✨</div>
 
-            <div class="wax-seal" id="openInvitationBtn">
-                <i class="fa-solid fa-envelope-open-text"></i>
+            <button type="button" class="wax-seal" id="openInvitationBtn">
+                <i class="fa-solid fa-envelope-open-text" aria-hidden="true"></i>
                 <span>TAP TO OPEN LETTER</span>
-            </div>
+            </button>
         </div>
     </div>
 
@@ -73,14 +71,10 @@
             <div class="hero-content">
                 <div class="badge-tag"><i class="fa-solid fa-star"></i> NPA PASSING OUT PARADE CELEBRATION <i class="fa-solid fa-star"></i></div>
                 <h1 class="hero-title">Congratulations, <br><span class="highlight-name">Officer Dev!</span></h1>
-                <p class="hero-subtitle">Your Real Journey Starts Today ✨</p>
-                <p class="hero-romantic-line"><i class="fa-solid fa-heart"></i> "In a world full of officers and heroes, you will always be my favorite person & my forever love." ❤️</p>
+                <p class="hero-subtitle">Your Real Journey Starts <span class="keep-together">Today ✨</span></p>
+                <p class="hero-romantic-line"><i class="fa-solid fa-heart"></i> "In a world full of officers and heroes, you will always be my favorite person & my forever <span class="keep-together">love." ❤️</span></p>
                 <p class="hero-tagline">"Where your hard work meets your dreams, and two journeys unite as one."</p>
 
-                <div class="hero-actions">
-                    <a href="#letter" class="btn btn-primary"><i class="fa-solid fa-book-open-reader"></i> Read Letter</a>
-                    <a href="#gallery" class="btn btn-secondary"><i class="fa-solid fa-images"></i> View Photos</a>
-                </div>
             </div>
         </section>
 
@@ -104,7 +98,7 @@
                         <p class="person-bio">"Seeing you at the post you worked so hard for is truly one of the proudest moments of my life."</p>
                         <div class="like-button-container">
                             <button class="like-btn" data-person="dev">
-                                <i class="fa-solid fa-star"></i> Salute & Pride (<span id="devLikes">184</span>)
+                                <i class="fa-solid fa-star"></i> Salute & Pride
                             </button>
                         </div>
                     </div>
@@ -127,7 +121,7 @@
                         <p class="person-bio">"Watching you reach the dreams you once worked so hard for fills my heart with endless pride."</p>
                         <div class="like-button-container">
                             <button class="like-btn" data-person="dev">
-                                <i class="fa-solid fa-award"></i> Respect & Belief (<span id="devLikes2">192</span>)
+                                <i class="fa-solid fa-award"></i> Respect & Belief
                             </button>
                         </div>
                     </div>
@@ -148,7 +142,6 @@
 
                 <!-- CARD 1: ONE OF MY PROUDEST MOMENTS -->
                 <div class="letter-card">
-                    <div class="card-number">01</div>
                     <h3 class="letter-card-title">One of My Proudest Moments</h3>
                     <div class="letter-card-body">
                         <p>Seeing you at the post you worked so hard for is truly one of the proudest moments of my life.</p>
@@ -161,7 +154,6 @@
 
                 <!-- CARD 2: TODAY, A NEW CHAPTER BEGINS -->
                 <div class="letter-card highlight-card">
-                    <div class="card-number">02</div>
                     <h3 class="letter-card-title"><i class="fa-solid fa-award"></i> Today, A New Chapter Begins</h3>
                     <div class="letter-card-body">
                         <p class="emphasis-text">Today, your Passing Out Parade at the NPA has been completed.</p>
@@ -176,7 +168,6 @@
 
                 <!-- CARD 3: MY DREAM FOR YOU -->
                 <div class="letter-card">
-                    <div class="card-number">03</div>
                     <h3 class="letter-card-title">My Dream for You</h3>
                     <div class="letter-card-body">
                         <p>I dream of seeing you become a dedicated, respected, and well-known officer—someone remembered not just because of the position he holds, but because of the work he does and the difference he makes.</p>
@@ -190,7 +181,6 @@
 
                 <!-- CARD 4: FOR EVERY DREAM YOU CARRY -->
                 <div class="letter-card">
-                    <div class="card-number">04</div>
                     <h3 class="letter-card-title">For Every Dream You Carry</h3>
                     <div class="letter-card-body">
                         <p>I want people to look at your journey and believe that an ordinary person with extraordinary determination can achieve whatever they truly dream of.</p>
@@ -206,7 +196,6 @@
 
                 <!-- CARD 5: OUR JOURNEY BEGINS TOO -->
                 <div class="letter-card highlight-card-gold">
-                    <div class="card-number">05</div>
                     <h3 class="letter-card-title"><i class="fa-solid fa-heart-circle-bolt"></i> Our Journey Begins Too</h3>
                     <div class="letter-card-body">
                         <p>Today, I don't just celebrate your achievement. I celebrate the beginning of everything that is yet to come.</p>
@@ -232,14 +221,13 @@
                     </div>
                     <div class="romantic-interactive-bar">
                         <button class="romantic-kiss-btn" id="sendKissBtn">
-                            <i class="fa-solid fa-heart-circle-bolt"></i> Tap to Send Love & Kisses (<span id="kissCount">999</span> 💖)
+                            <i class="fa-solid fa-heart-circle-bolt"></i> Tap to Send Love & Kisses 💖
                         </button>
                     </div>
                 </div>
 
                 <!-- CARD 6: ALWAYS BESIDE YOU -->
                 <div class="letter-card">
-                    <div class="card-number">06</div>
                     <h3 class="letter-card-title">Always Beside You</h3>
                     <div class="letter-card-body">
                         <p class="emphasis-text">Good luck, my love, for all the years and challenges ahead.</p>
