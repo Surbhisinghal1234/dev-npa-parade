@@ -918,8 +918,11 @@ img.align-top {
     background: rgba(0,0,0,0.85);
     backdrop-filter: blur(8px);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 14px;
+    padding: 70px 20px 30px;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
@@ -928,10 +931,20 @@ img.align-top {
 .lightbox-modal.active { opacity: 1; visibility: visible; }
 
 .lightbox-content {
-    max-width: 85%;
-    max-height: 80vh;
+    display: block;
+    flex-shrink: 0;
+    max-width: 100%;
+    max-height: calc(100dvh - 170px);
+    object-fit: contain;
     border-radius: 16px;
     border: 2px solid var(--accent-gold);
+}
+
+#lightboxCaption {
+    max-width: 100%;
+    color: var(--white);
+    text-align: center;
+    line-height: 1.4;
 }
 
 .lightbox-close {
@@ -1165,4 +1178,26 @@ img.align-top {
         border: 1.5px solid #d4af37 !important;
         margin-bottom: 25px !important;
     }
+    .hero-section { padding: 24px 20px; }
+    .hero-content { gap: 14px; }
+    .hero-title { font-size: 2.5rem; }
+    .hero-subtitle { font-size: 2rem; }
+    .hero-romantic-line, .hero-tagline { font-size: 1rem; }
+    .profiles-section { padding: 20px 5% 24px; }
+    .profiles-section .section-header { margin-bottom: 20px; }
+    .profiles-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .heart-connector, .gallery-actions, .gallery-section .section-desc { display: none; }
+    .person-card { padding: 14px; box-shadow: none; }
+    .image-wrapper { height: 230px; margin-bottom: 12px; }
+    .image-wrapper img { object-position: center top; }
+    .person-name { margin: 6px 0; }
+    .person-bio { min-height: 0; }
+    .letter-section { break-before: page; }
+    .gallery-section { break-before: page; padding: 30px 4%; }
+    .gallery-section .section-header { margin-bottom: 24px; }
+    .gallery-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .gallery-img-box { height: 260px; }
+    .gallery-caption { padding: 14px 10px; }
+    .gallery-card { box-shadow: none; }
+    .footer { padding: 35px 20px; }
 }
