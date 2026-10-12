@@ -11,8 +11,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const bgMusic = document.getElementById('bgMusic');
     const audioToggle = document.getElementById('audioToggle');
     const volumeIcon = document.getElementById('volumeIcon');
+    const musicStartTime = 10;
 
     let isPlaying = false;
+
+    function skipMusicIntro() {
+        if (bgMusic.readyState >= 1 && bgMusic.currentTime < musicStartTime) {
+            bgMusic.currentTime = musicStartTime;
+        }
+    }
+
+    bgMusic.addEventListener('loadedmetadata', skipMusicIntro);
+    bgMusic.addEventListener('ended', () => {
+        bgMusic.currentTime = musicStartTime;
+        playMusic();
+    });
 
     if (openInvitationBtn) {
         openInvitationBtn.addEventListener('click', () => {
@@ -23,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function playMusic() {
+        skipMusicIntro();
         bgMusic.play().then(() => {
             isPlaying = true;
             audioToggle.setAttribute('aria-label', 'Pause music');
